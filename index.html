@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="description" content="Frontend Mentor - Newsletter sign-up form with success message">
+  <meta name="keywords" content="HTML, CSS, JavaScript">
+  <meta name="author" content="Rebecca Padgett">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <title>Frontend Mentor | Newsletter sign-up form with success message</title>
+  <!-- css -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <!-- JavaScript -->
+  <script src="./assets/js/script.js" defer></script>
+</head>
+
+<body>
+  <main class="newsletter flex" data-js-main role="presentation">
+    <h1 class="visually-hidden">Newsletter sign-up form with success message</h1>
+    <!-- Sign-up form start -->
+    <article class="newsletter__text-group grid">
+      <h2 class="newsletter__title"> Stay updated!</h2>
+      <p> Join 60,000+ product managers receiving monthly updates on:</p>
+      <ul role="list">
+        <li class="newsletter__item flex"> Product discovery and building what matters</li>
+        <li class="newsletter__item flex"> Measuring to ensure updates are a success</li>
+        <li class="newsletter__item flex"> And much more!</li>
+      </ul>
+      <form action="#" class="form grid" data-js-form>
+        <fieldset class="flex flex-col">
+          <legend class="visually-hidden">Newsletter Sign up Form</legend>
+          <span class="visually-hidden">Enter Email address</span>
+          <div class="form__group flex">
+            <label for="email" class="form__label">Email address</label>
+            <p class="form__error" data-js-error></p>
+          </div>
+          <input type="email" class="form__input" id="email" name="email" autocomplete="email" value="" data-js-input>
+        </fieldset>
+        <button class="button">Subscribe to monthly newsletter</button>
+      </form>
+    </article>
+    <!-- Sign-up form end -->
+    <div class="newsletter__image-group">
+      <!-- using the picture html tag to change illustration on mobile to desktop -->
+      <picture>
+        <source media="(min-width: 60em)" srcset="./assets/images/illustration-sign-up-desktop.svg">
+        <img src="./assets/images/illustration-sign-up-mobile.svg" width="375" height="284" aria-hidden="true" alt="">
+      </picture>
+    </div>
+  </main>
+  <template data-js-template>
+    <h1 class="visually-hidden">Newsletter Subscription Page</h1>
+    <!-- Success message start -->
+    <img src="./assets/images/icon-list.svg" width="64" height="64" aria-hidden="true" alt="">
+    <h2 class="newsletter__title"> Thanks for subscribing!</h2>
+    <p> A confirmation email has been sent to <strong>{{email}}</strong>
+      Please open it and click the button inside to confirm your subscription.</p>
+    <button class="button" data-js-reset> Dismiss message</button>
+    <!-- Success message end -->
+  </template>
+  <footer>
+    <p class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+      Coded by <a href="#">Rebecca Padgett</a>.
+    </p>
+  </footer>
+</body>
+
+</html>

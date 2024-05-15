@@ -1,0 +1,362 @@
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-Regular.ttf");
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-Bold.ttf");
+  font-style: normal;
+  font-weight: 700;
+}
+
+/* css variables */
+:root {
+  --clr-primary-400: 4 100% 67%;
+  --clr-neutral-100: 0 0% 100%;
+  --clr-neutral-200: 231 7% 60%;
+  --clr-neutral-300: 235 18% 26%;
+  --clr-neutral-400: 234 29% 20%;
+}
+
+/* reset */
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin and padding */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+  font-size: 100%;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin-block-end: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
+  line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* sometimes referred to as .sr-only */
+.visually-hidden:not(:focus):not(:active):not(:focus-within) {
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+*:focus-visible {
+  outline: 3px dotted hsl(var(--clr-primary-400));
+  outline-offset: 5px;
+}
+
+/* general styles */
+body {
+  font-family: "Roboto", sans-serif;
+  color: hsl(var(--clr-neutral-400));
+}
+
+fieldset {
+  gap: var(--_gap, 0.5rem);
+  border: none;
+}
+
+input {
+  width: 100%;
+}
+
+button {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
+/* utility classes */
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.grid {
+  display: grid;
+  gap: var(--_gap, 1rem);
+}
+
+/* button styles */
+.button {
+  font-weight: 700;
+  height: 3.375rem;
+  color: hsl(var(--clr-neutral-100));
+  background-color: hsl(var(--clr-neutral-400));
+  border-radius: 0.5rem;
+  transition: 300ms ease-in-out;
+}
+
+.button:is(:hover, :focus-visible) {
+  background-image: linear-gradient(
+    90deg,
+    hsl(350, 100%, 67%),
+    hsl(13, 100%, 63%)
+  );
+  box-shadow: rgb(255 106 56 / 0.2) 0 2rem 2.5rem,
+    rgb(255 166 56 / 0.12) 0 2rem 3rem;
+}
+
+/* newsletter styles */
+.newsletter__title {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+}
+
+.newsletter__item {
+  column-gap: 1rem;
+}
+
+.newsletter__item::before {
+  content: url("../images/icon-list.svg");
+}
+
+.newsletter__image-group img {
+  width: 100%;
+  height: 100%;
+}
+
+.newsletter__text-group {
+  padding-block: 3.125rem 2.5625rem;
+  padding-inline: 1rem;
+}
+
+/* form styles */
+.form:focus {
+  opacity: 1;
+}
+
+.form__label {
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.form__input {
+  border: 1px solid hsl(var(--clr-neutral-200));
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+::placeholder {
+  color: #767676;
+  opacity: 1;
+}
+
+.form__group {
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* JavaScript styles - error states */
+.form.inactive .form__input {
+  --_input-bkg: 5 100% 95%;
+  border: 2px solid hsl(var(--clr-primary-400));
+  color: hsl(var(--clr-primary-400));
+  background-color: hsl(var(--_input-bkg));
+}
+
+.form__error {
+  font-size: 0.875rem;
+  color: hsl(var(--clr-primary-400));
+  font-weight: 700;
+  display: none;
+}
+
+.form.inactive .form__error {
+  display: block;
+}
+
+strong {
+  color: hsl(var(--clr-neutral-400));
+}
+
+/* attribution */
+footer {
+  background-color: hsl(var(--clr-neutral-100) / 0.8);
+  padding: 0.625rem;
+  position: fixed;
+  inset: auto auto 1em 1em;
+  display: none;
+  width: max-content;
+  color: hsl(var(--clr-neutral-400));
+}
+
+.attribution {
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+/* min-width media queries */
+@media (width >= 40em) {
+  body {
+    background-color: hsl(var(--clr-neutral-400));
+    display: grid;
+    place-content: center;
+  }
+
+  .newsletter {
+    gap: var(--_gap, 1rem);
+    background-color: hsl(var(--clr-neutral-100));
+    border-radius: 2.25rem;
+    padding: 1.5rem;
+    max-width: 51rem;
+    flex-direction: column-reverse;
+    margin-block: 1rem;
+  }
+
+  .newsletter.active {
+    flex-direction: column;
+    padding: 3rem;
+    width: min-content;
+    min-width: 31.25rem;
+    margin-inline: auto;
+  }
+
+  .newsletter__image-group img {
+    border-radius: 1.25rem 1.25rem 0 0;
+  }
+}
+
+@media (width >= 60em) {
+  .newsletter {
+    flex-direction: row;
+    margin-block: 0;
+  }
+
+  footer {
+    display: block;
+  }
+}
+
+/*  max-width media query */
+@media (width <= 40em) {
+  .newsletter {
+    flex-direction: column-reverse;
+  }
+
+  .newsletter.active {
+    gap: var(--_gap, 2.75rem);
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100dvh;
+    position: relative;
+    margin-inline: 1rem;
+  }
+
+  [data-js-reset] {
+    position: absolute;
+    inset: auto auto 1.5rem auto;
+    width: 100%;
+  }
+}
