@@ -35,8 +35,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Frontend Mentor](https://your-solution-url.com)
-- Live Site URL: [Github Pages](https://your-live-site-url.com)
+- Solution URL: [Frontend Mentor](https://www.frontendmentor.io/solutions/responsive-newsletter-signup-form-using-html-css-js-EdUs0QDzDd)
+- Live Site URL: [Github Pages](https://bccpadge.github.io/newsletter-sign-up-form-with-success-message/)
 
 ## My process
 
@@ -54,7 +54,6 @@ In this project, reforced the implementation of the `<template></template>` tag 
 
 ```html
 <template data-js-template>
-  <h1 class="visually-hidden">Newsletter Subscription Page</h1>
   <!-- Success message start -->
   <img
     src="./assets/images/icon-list.svg"
@@ -62,7 +61,7 @@ In this project, reforced the implementation of the `<template></template>` tag 
     height="64"
     aria-hidden="true"
     alt="" />
-  <h2 class="newsletter__title">Thanks for subscribing!</h2>
+  <h1 class="newsletter__title">Thanks for subscribing!</h2>
   <p>
     A confirmation email has been sent to
     <strong>{{email}}</strong>
