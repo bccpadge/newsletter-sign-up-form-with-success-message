@@ -212,6 +212,7 @@ button {
 
 .newsletter__item {
   column-gap: 1rem;
+  list-style: none;
 }
 
 .newsletter__item::before {
